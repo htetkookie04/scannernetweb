@@ -1,6 +1,6 @@
 // Hardcoded credentials
-const VALID_EMAIL = 'naryaal@example.com';
-const VALID_PASSWORD = 'Pass@123';
+const VALID_EMAIL = 'naryaal@gmail.com';
+const VALID_PASSWORD = 'pass@123';
 
 // Screen navigation
 function showLogin() {
