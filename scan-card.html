@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ScannerNet - Scan Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scan-page-container">
+        <!-- Header -->
+        <header class="scan-header">
+            <button class="scan-header-btn" onclick="window.location.href='my-cards.html'" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <button class="scan-header-btn" id="flashToggle" aria-label="Flash">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="scan-page-content">
+            <div class="scan-instructions-top">
+                <h2 class="scan-instruction-title">Position the card within the frame.</h2>
+                <p class="scan-instruction-subtitle">Auto-capture is on.</p>
+            </div>
+
+            <!-- Viewfinder -->
+            <div class="scan-viewfinder-container">
+                <div class="scan-frame">
+                    <div class="frame-corner frame-corner-tl"></div>
+                    <div class="frame-corner frame-corner-tr"></div>
+                    <div class="frame-corner frame-corner-bl"></div>
+                    <div class="frame-corner frame-corner-br"></div>
+                    <div class="scan-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scan Mode Toggle -->
+            <div class="scan-mode-toggle">
+                <button class="mode-btn active" id="singleScanBtn" onclick="setScanMode('single')">Single Scan</button>
+                <button class="mode-btn" id="multiScanBtn" onclick="setScanMode('multi')">Multi-Scan</button>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="scan-controls-bottom">
+                <button class="scan-control-icon" onclick="openGallery()" aria-label="Gallery">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </button>
+                <button class="scan-capture-btn-large" onclick="captureCard()" aria-label="Capture">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                </button>
+                <button class="scan-control-icon" onclick="showHelp()" aria-label="Help">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="scan-card.js"></script>
+</body>
+</html>
+

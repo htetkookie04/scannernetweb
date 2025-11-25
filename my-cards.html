@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ScannerNet - My Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="home-container">
+        <!-- Header -->
+        <header class="cards-header">
+            <button class="icon-btn menu-btn" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" y2="6"></line>
+                    <line x1="3" y1="18" y2="18"></line>
+                </svg>
+            </button>
+            <h1 class="page-title">My Cards</h1>
+            <button class="icon-btn" aria-label="Notifications">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="cards-content">
+            <!-- Premium Banner -->
+            <div class="premium-banner" id="premiumBanner" style="background: url('photo/Banner 3.png') center/cover no-repeat;">
+                <button class="banner-close" onclick="closePremiumBanner()">×</button>
+                <h3 class="banner-title">Upgrade to Premium!</h3>
+                <p class="banner-subtitle">Get unlimited scans and manage your contacts like a pro.</p>
+                <button class="upgrade-btn">Upgrade</button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar-container">
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" placeholder="Search by name or company" class="search-input" id="searchInput">
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="recent">Recent</button>
+                <button class="filter-btn" data-filter="company">By Company</button>
+                <button class="filter-btn" data-filter="name">By Name</button>
+            </div>
+
+            <!-- Business Card Grid -->
+            <div class="cards-grid" id="cardsGrid">
+                <!-- Card 1 -->
+                <div class="card-item" data-company="Kakao Corp." data-name="Min-jun Kim">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);">
+                        <div class="card-preview-content">
+                            <h3>MIN-JUN KIM</h3>
+                            <p>Software Engineer</p>
+                            <p>Kakao Corp.</p>
+                            <p>+82 10-1234-5678</p>
+                            <p>minjun@kakao.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Min-jun Kim</h4>
+                        <p class="card-company">Kakao Corp.</p>
+                        <p class="card-title">Software Engineer</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-item" data-company="Naver Corporation" data-name="Seo-yeon Park">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <div class="card-preview-content">
+                            <h3>SEO-YEON PARK</h3>
+                            <p>Marketing Manager</p>
+                            <p>Naver Corporation</p>
+                            <p>+82 10-2345-6789</p>
+                            <p>seoyeon@naver.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Seo-yeon Park</h4>
+                        <p class="card-company">Naver Corporation</p>
+                        <p class="card-title">Marketing Manager</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-item" data-company="Samsung" data-name="Do-yun Lee">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <div class="card-preview-content">
+                            <h3>DO-YUN LEE</h3>
+                            <p>Lead Designer</p>
+                            <p>Samsung</p>
+                            <p>+82 10-3456-7890</p>
+                            <p>doyun@samsung.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Do-yun Lee</h4>
+                        <p class="card-company">Samsung</p>
+                        <p class="card-title">Lead Designer</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-item" data-company="Hyundai Motors" data-name="Ji-woo Choi">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <div class="card-preview-content">
+                            <h3>JI-WOO CHOI</h3>
+                            <p>Product Manager</p>
+                            <p>Hyundai Motors</p>
+                            <p>+82 10-4567-8901</p>
+                            <p>jiwoo@hyundai.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Ji-woo Choi</h4>
+                        <p class="card-company">Hyundai Motors</p>
+                        <p class="card-title">Product Manager</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card-item" data-company="LG Electronics" data-name="Ha-joon Jeong">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <div class="card-preview-content">
+                            <h3>HA-JOON JEONG</h3>
+                            <p>Sales Director</p>
+                            <p>LG Electronics</p>
+                            <p>+82 10-5678-9012</p>
+                            <p>hajoon@lg.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Ha-joon Jeong</h4>
+                        <p class="card-company">LG Electronics</p>
+                        <p class="card-title">Sales Director</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card-item" data-company="SK Telecom" data-name="Seo-ah Yoon">
+                    <div class="card-preview" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <div class="card-preview-content">
+                            <h3>SEO-AH YOON</h3>
+                            <p>Data Analyst</p>
+                            <p>SK Telecom</p>
+                            <p>+82 10-6789-0123</p>
+                            <p>seoah@sk.com</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-name">Seo-ah Yoon</h4>
+                        <p class="card-company">SK Telecom</p>
+                        <p class="card-title">Data Analyst</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Floating Action Button -->
+        <button class="fab" onclick="window.location.href='scan-card.html'" aria-label="Add Card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+        </button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item" role="button" aria-label="Home" onclick="window.location.href='home.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item nav-item-active" role="button" aria-label="Cards">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="Scan" onclick="window.location.href='scan-card.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 19V7a2 2 0 0 0-2-2h-3.17l-1-2H7.17l-1 2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2z"></path>
+                        <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="AI" onclick="window.location.href='create-card.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="Profile" onclick="window.location.href='profile.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="my-cards.js"></script>
+</body>
+</html>
+

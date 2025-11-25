@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ScannerNet - Create AI Business Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="create-card-container">
+        <!-- Header -->
+        <header class="create-header">
+            <button class="back-btn" onclick="window.location.href='my-cards.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <h1 class="create-page-title">Create AI Business Card</h1>
+            <div style="width: 24px;"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="create-card-content">
+            <!-- Live Preview -->
+            <div class="preview-section">
+                <label class="section-label">Live Preview</label>
+                <div class="card-preview-large" id="cardPreview">
+                    <div class="preview-content">
+                        <h2 class="preview-name" id="previewName">Kim Min-jun</h2>
+                        <p class="preview-title" id="previewTitle">Software Engineer, ScannerNet Inc.</p>
+                        <p class="preview-contact" id="previewContact">+8210-1234-5678 | minjun.kim@scannernet.co.kr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Information -->
+            <div class="form-section">
+                <h3 class="section-title">Core Information</h3>
+                <div class="form-group">
+                    <label for="nameInput">Name</label>
+                    <input type="text" id="nameInput" class="form-input" value="Kim Min-jun" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label for="companyInput">Company & Title</label>
+                    <input type="text" id="companyInput" class="form-input" value="Software Engineer, ScannerNet Inc." oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label for="phoneInput">Phone Number</label>
+                    <input type="tel" id="phoneInput" class="form-input" value="+8210-1234-5678" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label for="emailInput">Email</label>
+                    <input type="email" id="emailInput" class="form-input" value="minjun.kim@scannernet.co.kr" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <!-- AI Design Section -->
+            <div class="form-section">
+                <h3 class="section-title">Let AI Design for You</h3>
+                <p class="section-description">Select a style and let our AI create the perfect layout.</p>
+                <button class="ai-generate-btn" onclick="generateWithAI()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                    </svg>
+                    <span>Generate with AI</span>
+                </button>
+            </div>
+
+            <!-- Fine-tune Design -->
+            <div class="form-section">
+                <h3 class="section-title">Fine-tune Your Design</h3>
+                
+                <!-- Style Options -->
+                <div class="design-option">
+                    <label class="option-label">Style</label>
+                    <div class="style-cards">
+                        <div class="style-card active" data-style="minimal" onclick="selectStyle('minimal')">
+                            <div class="style-preview minimal-preview"></div>
+                            <span class="style-name">Minimal</span>
+                        </div>
+                        <div class="style-card" data-style="corporate" onclick="selectStyle('corporate')">
+                            <div class="style-preview corporate-preview"></div>
+                            <span class="style-name">Corporate</span>
+                        </div>
+                        <div class="style-card" data-style="creative" onclick="selectStyle('creative')">
+                            <div class="style-preview creative-preview"></div>
+                            <span class="style-name">Creative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Palette -->
+                <div class="design-option">
+                    <label class="option-label">Color Palette</label>
+                    <div class="color-palette">
+                        <div class="color-swatch active" data-color="blue-purple" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);" onclick="selectColor('blue-purple')"></div>
+                        <div class="color-swatch" data-color="dark" style="background: #1f2937;" onclick="selectColor('dark')"></div>
+                        <div class="color-swatch" data-color="teal" style="background: #14b8a6;" onclick="selectColor('teal')"></div>
+                        <div class="color-swatch" data-color="orange-pink" style="background: linear-gradient(135deg, #f97316, #ec4899);" onclick="selectColor('orange-pink')"></div>
+                        <div class="color-swatch add-color" onclick="addCustomColor()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Logo -->
+                <div class="design-option">
+                    <label class="option-label">Upload Logo or Photo</label>
+                    <div class="upload-area" onclick="document.getElementById('logoUpload').click()">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Upload Logo or Photo</span>
+                    </div>
+                    <input type="file" id="logoUpload" accept="image/*" style="display: none;" onchange="handleLogoUpload(event)">
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <button class="save-card-btn" onclick="saveCard()">Save My Card</button>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item" role="button" aria-label="Home" onclick="window.location.href='home.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="Cards" onclick="window.location.href='my-cards.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="Scan" onclick="window.location.href='scan-card.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 19V7a2 2 0 0 0-2-2h-3.17l-1-2H7.17l-1 2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2z"></path>
+                        <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item nav-item-active" role="button" aria-label="AI">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-item" role="button" aria-label="Profile" onclick="window.location.href='profile.html'">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="create-card.js"></script>
+</body>
+</html>
+

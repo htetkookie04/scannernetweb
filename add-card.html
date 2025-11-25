@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Add Business Card - ScannerNet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Add Business Card Info Screen -->
+        <div class="login-screen active" id="addCardScreen">
+            <div class="screen-header">
+                <button class="back-btn" onclick="goBack()">←</button>
+                <h1>Add your business card info</h1>
+            </div>
+            
+            <div class="manual-content">
+                <p class="manual-subtitle">Enter your card info in the box below.</p>
+                
+                <div class="card-image-upload" id="imageUpload">
+                    <div class="upload-placeholder" id="uploadPlaceholder">
+                        <span class="upload-icon">+</span>
+                        <span class="upload-text">Add Business Card Image</span>
+                    </div>
+                    <img id="uploadedImage" class="uploaded-image" style="display: none;" alt="Business Card">
+                </div>
+                
+                <form id="cardForm" class="manual-form">
+                    <div class="form-group">
+                        <label for="companyName">Company name <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🏢</span>
+                            <input type="text" id="companyName" name="companyName" placeholder="ITWIZARD" required>
+                        </div>
+                        <span class="error-text" id="companyNameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="department">Department <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🏢</span>
+                            <input type="text" id="department" name="department" placeholder="Software development" required>
+                        </div>
+                        <span class="error-text" id="departmentError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <div class="input-wrapper phone-code">
+                                <span class="input-icon">🇲🇲</span>
+                                <input type="text" id="phoneCode" name="phoneCode" placeholder="+95" value="+95" required>
+                            </div>
+                            <div class="input-wrapper phone-number">
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Mobile number" required>
+                            </div>
+                        </div>
+                        <span class="error-text" id="phoneError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉</span>
+                            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                        </div>
+                        <span class="error-text" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobTitle">Job title <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">💼</span>
+                            <input type="text" id="jobTitle" name="jobTitle" placeholder="Project Manager" required>
+                        </div>
+                        <span class="error-text" id="jobTitleError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📍</span>
+                            <input type="text" id="address" name="address" placeholder="38, ZIRCA STREET, YANGON, MYANMAR" required>
+                        </div>
+                        <span class="error-text" id="addressError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="websiteLink">Website link <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔗</span>
+                            <input type="url" id="websiteLink" name="websiteLink" placeholder="www.yourwebsite.com" required>
+                        </div>
+                        <span class="error-text" id="websiteLinkError"></span>
+                    </div>
+                    
+                    <div class="form-message" id="formMessage"></div>
+                    
+                    <div class="form-help-text" style="margin-top: 10px; margin-bottom: 20px; padding: 12px; background: #f3f4f6; border-radius: 8px; font-size: 12px; color: #6b7280;">
+                        <strong>Note:</strong> Make sure the API server is running. Start it with: <code style="background: #e5e7eb; padding: 2px 6px; border-radius: 4px;">npm start</code>
+                    </div>
+                    
+                    <button type="submit" class="btn-continue" id="submitBtn" disabled>
+                        <span id="submitBtnText">Continue</span>
+                        <span id="submitBtnLoader" class="btn-loader" style="display: none;">⏳</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Screen (Second Screen) -->
+        <div class="login-screen" id="successScreen">
+            <div class="screen-header">
+                <button class="back-btn" onclick="goBackToForm()" style="visibility: hidden;">←</button>
+                <h1 style="visibility: hidden;">Success</h1>
+            </div>
+            
+            <div class="success-content">
+                <div class="success-icon-container">
+                    <div class="success-icon">✓</div>
+                </div>
+                
+                <h2 class="success-title">Card Saved Successfully!</h2>
+                <p class="success-message">Your business card information has been saved.</p>
+                
+                <div class="success-card-preview">
+                    <div class="preview-item">
+                        <span class="preview-label">Company:</span>
+                        <span class="preview-value" id="previewCompany">-</span>
+                    </div>
+                    <div class="preview-item">
+                        <span class="preview-label">Name:</span>
+                        <span class="preview-value" id="previewName">-</span>
+                    </div>
+                    <div class="preview-item">
+                        <span class="preview-label">Job Title:</span>
+                        <span class="preview-value" id="previewJob">-</span>
+                    </div>
+                    <div class="preview-item">
+                        <span class="preview-label">Email:</span>
+                        <span class="preview-value" id="previewEmail">-</span>
+                    </div>
+                </div>
+                
+                <div class="success-actions">
+                    <button class="btn-continue" onclick="goToProfile()">View Profile</button>
+                    <button class="btn-secondary-action" onclick="addAnotherCard()">Add Another Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="add-card.js"></script>
+</body>
+</html>
+
