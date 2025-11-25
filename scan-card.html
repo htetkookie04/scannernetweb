@@ -25,31 +25,17 @@
 
         <!-- Main Content -->
         <main class="scan-page-content">
-            <div class="scan-instructions-top">
-                <h2 class="scan-instruction-title">Position the card within the frame.</h2>
-                <p class="scan-instruction-subtitle">Auto-capture is on.</p>
-            </div>
-
             <!-- Viewfinder -->
             <div class="scan-viewfinder-container">
                 <div class="scan-frame">
-                    <div class="frame-corner frame-corner-tl"></div>
-                    <div class="frame-corner frame-corner-tr"></div>
-                    <div class="frame-corner frame-corner-bl"></div>
-                    <div class="frame-corner frame-corner-br"></div>
-                    <div class="scan-placeholder">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
+                    <img src="photo/scan.png" alt="Sample card" class="scan-card-image">
+                    <div class="scan-frame-line"></div>
                 </div>
             </div>
 
-            <!-- Scan Mode Toggle -->
-            <div class="scan-mode-toggle">
-                <button class="mode-btn active" id="singleScanBtn" onclick="setScanMode('single')">Single Scan</button>
-                <button class="mode-btn" id="multiScanBtn" onclick="setScanMode('multi')">Multi-Scan</button>
+            <div class="scan-instructions-top">
+                <h2 class="scan-instruction-title">Scan a Visiting Card</h2>
+                <p class="scan-instruction-subtitle">Hold the code inside the frame, it will be scanned automatically</p>
             </div>
 
             <!-- Control Buttons -->
@@ -66,11 +52,9 @@
                         <circle cx="12" cy="12" r="10"></circle>
                     </svg>
                 </button>
-                <button class="scan-control-icon" onclick="showHelp()" aria-label="Help">
+                <button class="scan-control-icon" onclick="toggleFlash()" aria-label="Flash Toggle">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                     </svg>
                 </button>
             </div>

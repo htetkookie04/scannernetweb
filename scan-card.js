@@ -1,7 +1,6 @@
 // Scan Card page JavaScript
 
 let flashOn = false;
-let scanMode = 'single';
 
 document.addEventListener('DOMContentLoaded', function() {
     const flashToggle = document.getElementById('flashToggle');
@@ -15,31 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function setScanMode(mode) {
-    scanMode = mode;
-    const singleBtn = document.getElementById('singleScanBtn');
-    const multiBtn = document.getElementById('multiScanBtn');
-    
-    if (mode === 'single') {
-        singleBtn.classList.add('active');
-        multiBtn.classList.remove('active');
-    } else {
-        singleBtn.classList.remove('active');
-        multiBtn.classList.add('active');
-    }
-    
-    console.log('Scan mode:', mode);
-}
-
 function captureCard() {
-    console.log('Capturing card in', scanMode, 'mode');
+    console.log('Capturing card');
     
     // Simulate capture
     const frame = document.querySelector('.scan-frame');
     if (frame) {
-        frame.style.borderColor = '#10b981';
+        frame.classList.add('scan-frame-active');
         setTimeout(() => {
-            frame.style.borderColor = '#ffffff';
+            frame.classList.remove('scan-frame-active');
             // Navigate to create card page after capture
             setTimeout(() => {
                 window.location.href = 'create-card.html';
@@ -64,7 +47,12 @@ function openGallery() {
     input.click();
 }
 
-function showHelp() {
-    alert('Position your business card within the frame. The app will automatically capture it when detected.');
+function toggleFlash() {
+    flashOn = !flashOn;
+    const flashToggle = document.getElementById('flashToggle');
+    if (flashToggle) {
+        flashToggle.style.opacity = flashOn ? '1' : '0.4';
+    }
+    console.log('Flash:', flashOn ? 'ON' : 'OFF');
 }
 
