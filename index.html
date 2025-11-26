@@ -15,16 +15,16 @@
             </div>
             
             <div class="main-content">
-                <h2 class="main-title">Create your <br/> Scanner Net account</h2>
+                <h2 class="main-title" data-translate="create_account">Create your <br/> Scanner Net account</h2>
                 
                 <div class="button-group">
-                    <button class="btn-secondary" onclick="showSignUp()">Sign up</button>
-                    <button class="btn-primary" onclick="showLogin()">Log in</button>
+                    <button class="btn-secondary" onclick="showSignUp()" data-translate="sign_up">Sign up</button>
+                    <button class="btn-primary" onclick="showLogin()" data-translate="log_in">Log in</button>
                 </div>
                 
                 <div class="social-login">
                     <div class="divider">
-                        <span>Or login with</span>
+                        <span data-translate="or_login_with">Or login with</span>
                     </div>
                     <div class="social-buttons">
                         <button class="btn-social btn-social-google">
@@ -36,7 +36,7 @@
                                     <path d="M12 4.7c2.3 0 3.8 1 4.7 1.8l3.4-3.3C18 1.2 15.3 0 12 0A12 12 0 0 0 1.3 6l3.6 2.7c1-3 3.7-4 7.1-4z" fill="#EA4335"/>
                                 </svg>
                             </span>
-                            <span>Google</span>
+                            <span data-translate="google">Google</span>
                         </button>
                         <button class="btn-social btn-social-facebook">
                             <span class="social-icon" aria-hidden="true">
@@ -45,7 +45,7 @@
                                     <path d="M13.3 8.5h2V6h-2.4c-2 0-3.2 1.2-3.2 3.1v1.6H7.8V14h2.9v6h2.7v-6h2.3l.4-3.3h-2.7V9.5c0-.6.2-1 1-1z" fill="#fff"/>
                                 </svg>
                             </span>
-                            <span>Facebook</span>
+                            <span data-translate="facebook">Facebook</span>
                         </button>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                 </div>
                 
                 <div class="footer-links">
-                    <p>By continuing you accept our <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>.</p>
+                    <p data-translate="terms_footer">By continuing you accept our <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>.</p>
                 </div>
             </div>
         </div>
@@ -70,27 +70,27 @@
         <div class="login-screen" id="screen2">
             <div class="screen-header">
                 <button class="back-btn" onclick="goBack()">←</button>
-                <h1>login with email</h1>
+                <h1 data-translate="login_with_email">login with email</h1>
             </div>
             
             <div class="login-content">
-                <h2 class="login-title">Log in to your account</h2>
-                <p class="login-subtitle">Enter your email address to verify your account.</p>
+                <h2 class="login-title" data-translate="login_title">Log in to your account</h2>
+                <p class="login-subtitle" data-translate="login_subtitle">Enter your email address to verify your account.</p>
                 
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" data-translate="email">Email</label>
                         <div class="input-wrapper">
                             <span class="input-icon">✉</span>
-                            <input type="email" id="email" name="email" placeholder="Email address" required>
+                            <input type="email" id="email" name="email" placeholder="Email address" data-translate="email_placeholder" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password" data-translate="password">Password</label>
                         <div class="input-wrapper">
                             <span class="input-icon">🔒</span>
-                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <input type="password" id="password" name="password" placeholder="Password" data-translate="password_placeholder" required>
                             <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
                         </div>
                     </div>
@@ -99,10 +99,10 @@
                     
                     <div class="checkbox-group">
                         <input type="checkbox" id="termsCheck" name="terms" required>
-                        <label for="termsCheck">By continuing you accept our <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>.</label>
+                        <label for="termsCheck" data-translate="terms_checkbox">By continuing you accept our <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>.</label>
                     </div>
                     
-                    <button type="submit" class="btn-login">Log in</button>
+                    <button type="submit" class="btn-login" data-translate="log_in">Log in</button>
                 </form>
             </div>
         </div>
@@ -122,11 +122,11 @@
                 </div>
                 
                 <div class="welcome-text">
-                    <h2 class="welcome-title">Congratulation!<br/>Welcome to ScannerNet</h2>
-                    <p class="welcome-subtitle">We are happy to have you. It's time to search,<br/>scan business card.</p>
+                    <h2 class="welcome-title" data-translate="welcome_title">Congratulation!<br/>Welcome to ScannerNet</h2>
+                    <p class="welcome-subtitle" data-translate="welcome_subtitle">We are happy to have you. It's time to search,<br/>scan business card.</p>
                 </div>
                 
-                <button class="btn-continue" onclick="continueToApp()">Continue</button>
+                <button class="btn-continue" onclick="continueToApp()" data-translate="continue">Continue</button>
             </div>
         </div>
 
@@ -134,7 +134,7 @@
         <div class="login-screen" id="screen5">
             <div class="screen-header">
                 <button class="back-btn" onclick="goBackToWelcome()">←</button>
-                <h1>Select User</h1>
+                <h1 data-translate="select_user">Select User</h1>
             </div>
             
             <div class="select-user-content">
@@ -144,8 +144,8 @@
                         <div class="option-content">
                             <div class="option-icon">📷</div>
                             <div class="option-text">
-                                <div class="option-title">Scan Your Business Card</div>
-                                <div class="option-description">Use your camera to scan your ID.</div>
+                                <div class="option-title" data-translate="scan_card_title">Scan Your Business Card</div>
+                                <div class="option-description" data-translate="scan_card_desc">Use your camera to scan your ID.</div>
                             </div>
                         </div>
                         <span class="radio-custom"></span>
@@ -156,15 +156,15 @@
                         <div class="option-content">
                             <div class="option-icon">📝</div>
                             <div class="option-text">
-                                <div class="option-title">Type manual Information</div>
-                                <div class="option-description">Fill in your details manually below.</div>
+                                <div class="option-title" data-translate="manual_title">Type manual Information</div>
+                                <div class="option-description" data-translate="manual_desc">Fill in your details manually below.</div>
                             </div>
                         </div>
                         <span class="radio-custom"></span>
                     </label>
                 </div>
                 
-                <button class="btn-continue" onclick="completeFlow()">Continue</button>
+                <button class="btn-continue" onclick="completeFlow()" data-translate="continue">Continue</button>
             </div>
         </div>
 
@@ -187,8 +187,8 @@
                 </div>
                 
                 <div class="scan-instructions">
-                    <h2 class="scan-title">Scan a Visiting Card</h2>
-                    <p class="scan-subtitle">Hold the code inside the frame, it will be scanned automatically</p>
+                    <h2 class="scan-title" data-translate="scan_visiting_card">Scan a Visiting Card</h2>
+                    <p class="scan-subtitle" data-translate="scan_subtitle">Hold the code inside the frame, it will be scanned automatically</p>
                 </div>
                 
                 <div class="scan-controls">
@@ -207,22 +207,22 @@
         <div class="login-screen" id="screen7">
             <div class="screen-header">
                 <button class="back-btn" onclick="goBackToSelectUser()">←</button>
-                <h1>Add your business card info</h1>
+                <h1 data-translate="add_card_info">Add your business card info</h1>
             </div>
             
             <div class="manual-content">
-                <p class="manual-subtitle">Enter your card info in the box below.</p>
+                <p class="manual-subtitle" data-translate="enter_card_info">Enter your card info in the box below.</p>
                 
                 <div class="card-image-upload">
                     <div class="upload-placeholder">
                         <span class="upload-icon">+</span>
-                        <span class="upload-text">Add Business Card Image</span>
+                        <span class="upload-text" data-translate="add_card_image">Add Business Card Image</span>
                     </div>
                 </div>
                 
                 <form id="manualForm" class="manual-form">
                     <div class="form-group">
-                        <label for="companyName">Company name</label>
+                        <label for="companyName" data-translate="company_name">Company name</label>
                         <div class="input-wrapper">
                             <span class="input-icon">🏢</span>
                             <input type="text" id="companyName" name="companyName" placeholder="ITWIZARD" value="ITWIZARD">
@@ -230,7 +230,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="department">Department</label>
+                        <label for="department" data-translate="department">Department</label>
                         <div class="input-wrapper">
                             <span class="input-icon">🏢</span>
                             <input type="text" id="department" name="department" placeholder="Software development" value="Software development">
@@ -238,7 +238,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone" data-translate="phone">Phone</label>
                         <div class="phone-input-group">
                             <div class="input-wrapper phone-code">
                                 <span class="input-icon">🇲🇲</span>
@@ -251,7 +251,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" data-translate="email">Email</label>
                         <div class="input-wrapper">
                             <span class="input-icon">✉</span>
                             <input type="email" id="emailManual" name="email" placeholder="name@example.com">
@@ -259,7 +259,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="jobTitle">Job title</label>
+                        <label for="jobTitle" data-translate="job_title">Job title</label>
                         <div class="input-wrapper">
                             <span class="input-icon">💼</span>
                             <input type="text" id="jobTitle" name="jobTitle" placeholder="Project Manager" value="Project Manager">
@@ -267,7 +267,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address" data-translate="address">Address</label>
                         <div class="input-wrapper">
                             <span class="input-icon">📍</span>
                             <input type="text" id="address" name="address" placeholder="38, ZIRCA STREET, YANGON, MYANMAR" value="38, ZIRCA STREET, YANGON, MYANMAR">
@@ -275,14 +275,14 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="website">Website link</label>
+                        <label for="website" data-translate="website_link">Website link</label>
                         <div class="input-wrapper">
                             <span class="input-icon">🔗</span>
                             <input type="url" id="website" name="website" placeholder="www.yourwebsite.com">
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn-continue btn-continue-disabled" id="continueBtn" disabled>Continue</button>
+                    <button type="submit" class="btn-continue btn-continue-disabled" id="continueBtn" data-translate="continue" disabled>Continue</button>
                 </form>
             </div>
         </div>
@@ -299,31 +299,31 @@
                     <div class="success-icon">✓</div>
                 </div>
                 
-                <h2 class="success-title">Card Saved Successfully!</h2>
-                <p class="success-message">Your business card information has been saved.</p>
+                <h2 class="success-title" data-translate="card_saved">Card Saved Successfully!</h2>
+                <p class="success-message" data-translate="card_saved_msg">Your business card information has been saved.</p>
                 
                 <div class="success-card-preview">
                     <div class="preview-item">
-                        <span class="preview-label">Company:</span>
+                        <span class="preview-label" data-translate="company">Company:</span>
                         <span class="preview-value" id="previewCompanyScreen8">-</span>
                     </div>
                     <div class="preview-item">
-                        <span class="preview-label">Name:</span>
+                        <span class="preview-label" data-translate="name">Name:</span>
                         <span class="preview-value" id="previewNameScreen8">-</span>
                     </div>
                     <div class="preview-item">
-                        <span class="preview-label">Job Title:</span>
+                        <span class="preview-label" data-translate="job">Job Title:</span>
                         <span class="preview-value" id="previewJobScreen8">-</span>
                     </div>
                     <div class="preview-item">
-                        <span class="preview-label">Email:</span>
+                        <span class="preview-label" data-translate="email">Email:</span>
                         <span class="preview-value" id="previewEmailScreen8">-</span>
                     </div>
                 </div>
                 
                 <div class="success-actions">
-                    <button class="btn-continue" onclick="goToProfileFromSuccess()">View Profile</button>
-                    <button class="btn-secondary-action" onclick="addAnotherCardFromSuccess()">Add Another Card</button>
+                    <button class="btn-continue" onclick="goToProfileFromSuccess()" data-translate="view_profile">View Profile</button>
+                    <button class="btn-secondary-action" onclick="addAnotherCardFromSuccess()" data-translate="add_another">Add Another Card</button>
                 </div>
             </div>
         </div>
